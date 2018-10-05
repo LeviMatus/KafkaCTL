@@ -7,13 +7,22 @@ def handle_zookeeper(args: dict):
         topics = [topic.strip() for topic in topics]
 
     host = ZookeeperHosts().dict()[args.get('env', ['localhost'])[0]]
-
     commands = []
 
-    if args.get('delete', None):
-        base = "kafka-topics --delete --zookeeper {host}:2181".format(host=host)
+    if [cmd for cmd in ["delete", "p"] if cmd in args.keys()]:
+        base = "kafka-topics --zookeeper {host}:{p}".format(host=host, p=args.get('p', 2181))
+        alterations = None
+        if args.get("delete", None):
+            base += " --delete --topic"
+
+        elif args.get("partitions", None):
+            base += " --alter"
+            alterations = " --partitions {p}".format(p=args.get("partitions"))
+
         for topic in topics:
             command = base + " --topic {topic}".format(topic=topic)
+            if alterations:
+                command += alterations
             commands.append(command)
 
     else:

@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import argparse
 import sys
 import time
@@ -85,6 +83,7 @@ if __name__ == "__main__":
     parser.add_argument('--retention_ms', nargs='*', help="set 1000 or delete")
     parser.add_argument('--cleanup_policy', nargs='*', help="set compact or delete")
     parser.add_argument('--compaction_time', nargs='*', help="set <num> or delete")
+    parser.add_argument('--partitions', nargs='?', type=int, help="set <num>")
 
     args = vars(parser.parse_args(sys.argv[1:]))
 

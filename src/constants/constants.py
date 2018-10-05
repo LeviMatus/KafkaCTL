@@ -46,3 +46,4 @@ class TopicConfigs(ConstantDict):
     RETENTION_MS = 'retention.ms'
     CLEANUP_POLICY = 'cleanup.policy'
     COMPACTION_TIME = 'min.compaction.lag.ms'
+    PARTITIONS = "partitions"
