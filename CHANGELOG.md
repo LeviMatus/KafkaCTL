@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project should adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### [0.0.3]
+
+## [Released]
 ### [0.0.2]
 #### Added
 * [parition-count-alteration] ability to alter number of partitions on a kafka topic
@@ -12,7 +15,6 @@ and this project should adhere to [Semantic Versioning](http://semver.org/spec/v
 * [partition-count-alteration] zookeeper `kafka-topic` wrapper now uses the supplied port number
 if supplied, else the default `2181`.
 
-## [Released]
 ### [0.0.1]
 
 #### Updated
